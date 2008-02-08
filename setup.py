@@ -11,7 +11,7 @@ from setuptools import setup, find_packages
 import sys, os
 
 version = '1.0-beta1'
-shortdesc = "converter adapter for datetime input to datetime object."
+shortdesc = "converter adapter for date and time input to datetime object."
 longdesc = open(os.path.join(os.path.dirname(__file__), 'README.txt')).read()
 
 setup(name='bda.intellidatetime',
@@ -19,7 +19,7 @@ setup(name='bda.intellidatetime',
       description=shortdesc,
       long_description=longdesc,
       classifiers=[
-            'Development Status :: beta 1',
+            'Development Status :: beta1',
             'Environment :: Web Environment',
             'Framework :: Zope2',
             'License :: OSI Approved :: General Public Licence',
