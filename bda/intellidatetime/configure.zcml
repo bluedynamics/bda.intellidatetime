@@ -1,0 +1,13 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+  <adapter
+    for="*"
+    factory=".converter.LocalePattern"
+  />
+  
+  <adapter
+    for="*"
+    factory=".converter.IntelliDateTime"
+  />
+  
+</configure>
