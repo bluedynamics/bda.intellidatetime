@@ -10,7 +10,7 @@ __docformat__ = 'plaintext'
 from setuptools import setup, find_packages
 import sys, os
 
-version = '1.0 Beta 1'
+version = '1.0-beta1'
 shortdesc = "converter adapter for datetime input to datetime object."
 longdesc = open(os.path.join(os.path.dirname(__file__), 'README.txt')).read()
 
