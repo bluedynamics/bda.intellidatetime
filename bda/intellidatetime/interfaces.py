@@ -48,7 +48,7 @@ class IIntelliDateTime(Interface):
     """Interface for the datetime conversion.
     """
     
-    def convert(date, time=None, tzinfo=None, locale='en'):
+    def convert(date, time=None, tzinfo=None, locale='iso'):
         """Convert the input to a datetime object.
         
         The convert function accepts unicode or non-unicode strings and tries
