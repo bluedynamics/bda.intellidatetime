@@ -7,8 +7,9 @@ bda.intellidatetime
   the input format is definded by a locale2pattern mapping and is provided by
   a seperate interface.
 
-  TODO: complete the locale2pattern mappings, currently provided is 'en', 'de'
-        and the special locale iso, which is used as default.
+  TODO: complete the locale2pattern mappings, currently provided is
+        'en', 'de', 'fr', 'es'
+        and the special locale 'iso', which is used as default.
 
   Example:
 
@@ -23,7 +24,7 @@ bda.intellidatetime
 API doc:
 ========
 
-  convert(date, time=None, tzinfo=None, locale='en')
+  convert(date, time=None, tzinfo=None, locale='iso')
       Convert the input to a datetime object.
     
       The convert function accepts unicode or non-unicode strings and tries
