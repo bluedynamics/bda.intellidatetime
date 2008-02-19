@@ -53,13 +53,13 @@ class LocalePattern(object):
     PATTERNS['date']['iso'] = __date_I
     PATTERNS['time']['iso'] = __time_I
     
-    for locale in ['de', 'de-de', 'de-at', 'de-ch', 'es', 'fr']:
+    for locale in ['de', 'de-de', 'de-at', 'de-ch', 'es', 'fr', 'uk']:
         PATTERNS['date'][locale] = __date_II
     
     for locale in ['en']:
         PATTERNS['date'][locale] = __date_III
     
-    for locale in ['en', 'de', 'de-de', 'de-at', 'de-ch', 'es', 'fr']:
+    for locale in ['en', 'de', 'de-de', 'de-at', 'de-ch', 'es', 'fr', 'uk']:
         PATTERNS['time'][locale] = __time_I
     
     def __init__(self, context): pass
