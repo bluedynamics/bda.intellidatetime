@@ -277,9 +277,12 @@ class IntelliDateTime(object):
             'tzinfo': tzinfo,
         }
         try:
-            return datetime(*datetimedefs, **kwargs)
+            dt = datetime(*datetimedefs, **kwargs)
         except ValueError, e:
             raise DateTimeConversionError(e)
+        # normalize in case of DST
+        dt = dt.tzinfo.normalize(dt)
+        return dt
     
     def _parseDate(self, date, locale):
         if not date or not type(date) in types.StringTypes:
