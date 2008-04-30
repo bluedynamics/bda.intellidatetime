@@ -128,3 +128,5 @@ Credits
 
 - Written by Robert Niederreiter 
         Squarewave Computing, Bluedynamics Alliance Austria
+- Contributions: co-concept and timezone handling by Jens W. Klein
+        Bluedynamics Alliance, Klein & Partner KEG, Austria

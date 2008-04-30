@@ -274,15 +274,15 @@ class IntelliDateTime(object):
         datedefs = self._parseDate(date, locale)
         timedefs = self._parseTime(time, locale)
         datetimedefs = datedefs + timedefs
-        kwargs = {
-            'tzinfo': tzinfo,
-        }
+        kwargs = {'tzinfo': tzinfo }
         try:
             dt = datetime(*datetimedefs, **kwargs)
         except ValueError, e:
             raise DateTimeConversionError(e)
-        # normalize in case of DST
-        dt = dt.tzinfo.normalize(dt)
+        if tzinfo:
+            # set to normalized tz (in case of DST), keep input in tz and DST
+            # aware time -> dont add one hour
+            dt = dt.replace(tzinfo=tzinfo.normalize(dt).tzinfo)
         return dt
     
     def _parseDate(self, date, locale):
