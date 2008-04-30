@@ -106,7 +106,9 @@ API doc
         
       - @param time - a time as string
         
-      - @param tzinfo - a tzinfo object to be considered, defaults to None
+      - @param tzinfo - a tzinfo object to be considered, defaults to None. If
+        given the date and time taken as in the given timezone. If the timezone
+        is DST-aware time will be normalized for DST/non-DST. 
         
       - @param locale - a locale name, which is used to determine the date and
         time patterns. There exists a special locale named 'iso', define the
