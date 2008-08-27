@@ -54,14 +54,14 @@ class LocalePattern(object):
     PATTERNS['date']['iso'] = __date_I
     PATTERNS['time']['iso'] = __time_I
     
-    for locale in ['de', 'de-de', 'de-at', 'de-ch', 'es', 'fr', 'uk', 'it']:
+    for locale in ['de', 'de-de', 'de-at', 'de-ch', 'es', 'fr', 'uk', 'it', 'cs']:
         PATTERNS['date'][locale] = __date_II
     
     for locale in ['en']:
         PATTERNS['date'][locale] = __date_III
     
     for locale in ['en', 'de', 'de-de', 'de-at', 'de-ch', 'es', 'fr', 'uk',
-                   'it']:
+                   'it', 'cs']:
         PATTERNS['time'][locale] = __time_I
     
     def __init__(self, context): pass
@@ -218,20 +218,25 @@ class IntelliDateTime(object):
     Traceback (most recent call last):
       ...
     DateTimeConversionError: Invalid date input.
+    >>> from datetime import datetime
+    >>> this_month = datetime.now().month
+    >>> this_year = datetime.now().year
     >>> converter._parseDate('20080201', 'iso')
     [2008, 2, 1]
     >>> converter._parseDate('02012008', 'en')
     [2008, 2, 1]
     >>> converter._parseDate('01022008', 'de')
     [2008, 2, 1]
-    >>> converter._parseDate('01', 'de') # this will fail next month
+    >>> converter._parseDate('01022008', 'cs')
     [2008, 2, 1]
-    >>> converter._parseDate('01', 'en') # this will fail next month
-    [2008, 2, 1]
-    >>> converter._parseDate('0102', 'de') # this will fail next year
-    [2008, 2, 1]
-    >>> converter._parseDate('0201', 'en') # this will fail next year
-    [2008, 2, 1]
+    >>> converter._parseDate('01', 'de') == [2008, this_month, 1]
+    True
+    >>> converter._parseDate('01', 'en') == [2008, this_month, 1]
+    True
+    >>> converter._parseDate('0102', 'de') == [this_year, 2, 1]
+    True
+    >>> converter._parseDate('0201', 'en') == [this_year, 2, 1]
+    True
     >>> converter._parseDate('010208', 'de')
     [2008, 2, 1]
     >>> converter._parseDate('010210', 'de')
@@ -254,6 +259,8 @@ class IntelliDateTime(object):
     Test the public interface
     >>> converter.convert('1.1.08', time=None, tzinfo=None, locale='de')
     datetime.datetime(2008, 1, 1, 0, 0)
+    >>> converter.convert('5.1.08', time=None, tzinfo=None, locale='cs')
+    datetime.datetime(2008, 1, 5, 0, 0)
     >>> converter.convert('20080201')
     datetime.datetime(2008, 2, 1, 0, 0)
     >>> converter.convert('35.1.08', time=None, tzinfo=None, locale='de')

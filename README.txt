@@ -25,7 +25,13 @@ complete the locale2pattern mappings, currently provided locales are:
 - fr
   
 - es
-  
+
+- uk
+
+- it
+
+- cs
+
 - and the special locale ``iso``, which is used as default.
 
 
