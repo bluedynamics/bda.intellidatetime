@@ -12,18 +12,14 @@ datetime.datetime objects.
 the input format is definded by a locale2pattern mapping and is provided by
 a seperate interface.
 
-
-TODO
-----
-
-complete the locale2pattern mappings, currently provided locales are:
+Currently provided locales are:
   
 - en
-  
+
 - de
-  
+
 - fr
-  
+
 - es
 
 - uk
@@ -124,6 +120,13 @@ API doc
         
       - @raise DateTimeConversionError - if conversion failes
 
+TODO
+----
+
+- complete the locale2pattern mappings.
+
+- provide converter as utility and deprecate the adapter solution. 
+ 
 
 Licence
 -------
