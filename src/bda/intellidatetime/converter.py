@@ -28,18 +28,17 @@ class LocalePattern(object):
         'date': dict(),
         'time': dict(),
     }
-    
     PATTERNS['date']['iso'] = __date_I
-    PATTERNS['time']['iso'] = __time_I
     
-    for locale in ['de', 'de-de', 'de-at', 'de-ch', 'es', 'fr', 'uk', 'it', 'cs']:
+    for locale in ['de', 'de-de', 'de-at', 'de-ch',
+                   'es', 'fr', 'uk', 'it', 'cs']:
         PATTERNS['date'][locale] = __date_II
     
     for locale in ['en']:
         PATTERNS['date'][locale] = __date_III
     
-    for locale in ['en', 'de', 'de-de', 'de-at', 'de-ch', 'es', 'fr', 'uk',
-                   'it', 'cs']:
+    for locale in ['iso', 'en', 'de', 'de-de', 'de-at', 'de-ch', 
+                   'es', 'fr', 'uk', 'it', 'cs']:
         PATTERNS['time'][locale] = __time_I
     
     def __init__(self, context=None):
