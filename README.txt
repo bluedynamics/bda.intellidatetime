@@ -1,7 +1,5 @@
-===================
 bda.intellidatetime
 ===================
-
 
 Overview
 --------
@@ -120,24 +118,38 @@ API doc
         
       - @raise DateTimeConversionError - if conversion failes
 
-TODO
-----
-
-- complete the locale2pattern mappings.
-
-- provide converter as utility and deprecate the adapter solution. 
- 
 
 Licence
 -------
 
-- GNU General Public Licence Version 2 or later
+    - GNU General Public Licence Version 2 or later
 
 
 Credits
 -------
 
-- Written by Robert Niederreiter 
-        Squarewave Computing, Bluedynamics Alliance Austria
-- Contributions: co-concept and timezone handling by Jens W. Klein
-        Bluedynamics Alliance, Klein & Partner KEG, Austria
+    - Written by Robert Niederreiter <rnix@squarewave.at>
+
+    - Contributions Jens W. Klein <jens@bluedynamics.com>
+
+Changes
+=======
+
+1.0.1
+-----
+
+    - change package structure
+      [rnix, 2010-05-08]
+    
+    - move tests into seperate file
+      [rnix, 2010-05-08]
+    
+    - change signature of converter. could now be registered as utility as
+      well.
+      [rnix, 2010-05-08]
+
+1.0
+---
+
+    - make it work
+      [rnix, jensens]

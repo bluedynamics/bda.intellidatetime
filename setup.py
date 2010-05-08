@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 import sys, os
 
 version = '1.0.1'
-shortdesc = "Converter adapter for date and time input to datetime object."
+shortdesc = "Converter for date and time input to datetime object."
 longdesc = open(os.path.join(os.path.dirname(__file__), 'README.txt')).read()
 
 setup(name='bda.intellidatetime',
@@ -20,16 +20,17 @@ setup(name='bda.intellidatetime',
       ], # http://www.python.org/pypi?%3Aaction=list_classifiers
       keywords='',
       author='Robert Niedereiter',
-      author_email='rnix@squarewave.at',
+      author_email='dev@bluedynamics.com',
       url=u'https://svn.plone.org/svn/collective/bda.intellidatetime',
       license='General Public Licence',
-      packages=find_packages(exclude=['ez_setup',]),
+      packages=find_packages('src'),
       namespace_packages=['bda'],
       include_package_data=True,
       zip_safe=False,
       install_requires=[
-          'setuptools',    
-          'zope.interface',                    
+          'setuptools',
+          'zope.interface',
+          'zope.component',         
       ],
       tests_require=['interlude'],
       test_suite="bda.intellidatetime.tests.test_suite",
