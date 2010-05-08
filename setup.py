@@ -1,16 +1,7 @@
-# -*- coding: utf-8 -*-
-#
-# Copyright 2008-2009, Blue Dynamics Alliance, Austria - www.bluedynamics.com
-#
-# GNU General Public Licence Version 2 or later - see LICENCE.GPL
-
-__author__ = """Robert Niederreiter <rnix@squarewave.at>"""
-__docformat__ = 'plaintext'
-
 from setuptools import setup, find_packages
 import sys, os
 
-version = '1.0'
+version = '1.0.1'
 shortdesc = "Converter adapter for date and time input to datetime object."
 longdesc = open(os.path.join(os.path.dirname(__file__), 'README.txt')).read()
 
@@ -39,8 +30,9 @@ setup(name='bda.intellidatetime',
       install_requires=[
           'setuptools',    
           'zope.interface',                    
-          # -*- Extra requirements: -*
       ],
+      tests_require=['interlude'],
+      test_suite="bda.intellidatetime.tests.test_suite",
       entry_points="""
       # -*- Entry points: -*-
       """,
