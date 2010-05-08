@@ -4,8 +4,8 @@ Datetime converter
 Locale pattern
 --------------
 
-    >>> from bda.intellidatetime import ILocalePattern
-    >>> pattern = ILocalePattern(object())
+    >>> from bda.intellidatetime import LocalePattern
+    >>> pattern = LocalePattern()
     >>> pattern
     <bda.intellidatetime.converter.LocalePattern object at ...>
     
@@ -27,14 +27,15 @@ Converter
 Get The IntelliDateTime converter.
 ::
 
-    >>> from bda.intellidatetime import IIntelliDateTime
-    >>> converter = IIntelliDateTime(object())
+    >>> from bda.intellidatetime import IntelliDateTime
+    >>> converter = IntelliDateTime()
     >>> converter
     <bda.intellidatetime.converter.IntelliDateTime object at ...>
     
 Check if Interface implementation fits the definitions.
 ::
 
+    >>> from bda.intellidatetime import IIntelliDateTime
     >>> from zope.interface.verify import verifyObject
     >>> verifyObject(IIntelliDateTime, converter)
     True
@@ -240,10 +241,10 @@ Test the internal _parseDate() function.
     >>> converter._parseDate('01022008', 'cs')
     [2008, 2, 1]
     
-    >>> converter._parseDate('01', 'de') == [2008, this_month, 1]
+    >>> converter._parseDate('01', 'de') == [this_year, this_month, 1]
     True
     
-    >>> converter._parseDate('01', 'en') == [2008, this_month, 1]
+    >>> converter._parseDate('01', 'en') == [this_year, this_month, 1]
     True
     
     >>> converter._parseDate('0102', 'de') == [this_year, 2, 1]
@@ -294,3 +295,10 @@ Test the public interface.
     Traceback (most recent call last):
       ...
     DateTimeConversionError: day is out of range for month
+
+Convenience convert function
+----------------------------
+
+    >>> from bda.intellidatetime import convert
+    >>> convert('1.1.08', locale='de')
+    datetime.datetime(2008, 1, 1, 0, 0)

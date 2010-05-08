@@ -1,10 +1,12 @@
 <configure xmlns="http://namespaces.zope.org/zope">
 
+  <!-- BBB -->
   <adapter
     for="*"
     factory=".converter.LocalePattern"
   />
   
+  <!-- BBB -->
   <adapter
     for="*"
     factory=".converter.IntelliDateTime"

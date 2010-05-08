@@ -12,33 +12,25 @@ a seperate interface.
 
 Currently provided locales are:
   
-- en
-
-- de
-
-- fr
-
-- es
-
-- uk
-
-- it
-
-- cs
-
-- and the special locale ``iso``, which is used as default.
+    - en
+    - de
+    - fr
+    - es
+    - uk
+    - it
+    - cs
+    - and the special locale ``iso``, which is used as default.
 
 
 Example
 -------
 
-the converter is designed as adapter accepting any object (the adapted object
-is never used).::
+Use the convert function.
+::
 
-  >>> from bda.intellidatetime import IIntelliDateTime
-  >>> converter = IIntelliDateTime(object())
-  >>> converter.convert('1.1.08', locale='de')
-  datetime.datetime(2008, 1, 1, 0, 0)
+    >>> from bda.intellidatetime import convert
+    >>> convert('1.1.08', locale='de')
+    datetime.datetime(2008, 1, 1, 0, 0)
 
 
 API doc
@@ -132,24 +124,31 @@ Credits
 
     - Contributions Jens W. Klein <jens@bluedynamics.com>
 
+
 Changes
 =======
 
-1.0.1
------
+1.1
+---
 
-    - change package structure
+    - Provide convenience ``convert`` function.
+      [rnix, 2010-05-08]
+
+    - Change package structure.
       [rnix, 2010-05-08]
     
-    - move tests into seperate file
+    - Move tests into seperate file.
       [rnix, 2010-05-08]
     
-    - change signature of converter. could now be registered as utility as
-      well.
+    - Change signature of converter. could now be registered as utility as
+      well if desired.
+      [rnix, 2010-05-08]
+    
+    - Adapter pattern deprecated.
       [rnix, 2010-05-08]
 
 1.0
 ---
 
-    - make it work
+    - Make it work
       [rnix, jensens]

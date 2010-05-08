@@ -1,3 +1,11 @@
-from interfaces import ILocalePattern
-from interfaces import IIntelliDateTime
-from interfaces import DateTimeConversionError
+from bda.intellidatetime.interfaces import (
+    ILocalePattern,
+    IIntelliDateTime,
+    DateTimeConversionError,
+)
+from bda.intellidatetime.converter import (
+    LocalePattern,
+    IntelliDateTime,
+    convert,
+)
+

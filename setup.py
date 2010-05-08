@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 import sys, os
 
-version = '1.0.1'
-shortdesc = "Converter for date and time input to datetime object."
+version = '1.1'
+shortdesc = 'bda.intellidatetime'
 longdesc = open(os.path.join(os.path.dirname(__file__), 'README.txt')).read()
 
 setup(name='bda.intellidatetime',
@@ -11,30 +11,24 @@ setup(name='bda.intellidatetime',
       long_description=longdesc,
       classifiers=[
             'Development Status :: 5 - Production/Stable',
-            'Environment :: Web Environment',
-            'Framework :: Zope3',
-            'License :: OSI Approved :: GNU General Public License (GPL)',
             'Operating System :: OS Independent',
-            'Programming Language :: Python',
-            'Topic :: Internet :: WWW/HTTP :: Dynamic Content',            
-      ], # http://www.python.org/pypi?%3Aaction=list_classifiers
+            'Programming Language :: Python', 
+            'Topic :: Utilities',
+      ],
       keywords='',
-      author='Robert Niedereiter',
+      author='BlueDynamics Alliance',
       author_email='dev@bluedynamics.com',
       url=u'https://svn.plone.org/svn/collective/bda.intellidatetime',
-      license='General Public Licence',
+      license='GNU General Public Licence',
       packages=find_packages('src'),
+      package_dir = {'': 'src'},
       namespace_packages=['bda'],
       include_package_data=True,
       zip_safe=False,
       install_requires=[
           'setuptools',
           'zope.interface',
-          'zope.component',         
       ],
       tests_require=['interlude'],
-      test_suite="bda.intellidatetime.tests.test_suite",
-      entry_points="""
-      # -*- Entry points: -*-
-      """,
+      test_suite="bda.intellidatetime.tests.test_suite"
       )

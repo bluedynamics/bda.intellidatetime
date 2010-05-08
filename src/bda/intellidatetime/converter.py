@@ -7,6 +7,9 @@ from bda.intellidatetime.interfaces import (
     IIntelliDateTime,
 )
 
+def convert(date, time=None, tzinfo=None, locale='iso'):
+    return IntelliDateTime().convert(date, time, tzinfo, locale)
+
 class LocalePattern(object):
     """See interfaces.ILocalePattern.
     
@@ -39,7 +42,10 @@ class LocalePattern(object):
                    'it', 'cs']:
         PATTERNS['time'][locale] = __time_I
     
-    def __init__(self, context): pass
+    def __init__(self, context=None):
+        """BBB signature.
+        """
+        pass
     
     def date(self, locale):
         return self.PATTERNS['date'].get(locale, self.__date_I)
@@ -56,7 +62,9 @@ class IntelliDateTime(object):
     _numbers = [str(n) for n in range(10)]
     
     def __init__(self, context=None):
-        self.pattern = ILocalePattern(context)
+        """BBB context kwarg.
+        """
+        self.pattern = LocalePattern()
     
     def convert(self, date, time=None, tzinfo=None, locale='iso'):
         datedefs = self._parseDate(date, locale)
