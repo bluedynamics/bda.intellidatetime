@@ -117,12 +117,12 @@ Licence
     - GNU General Public Licence Version 2 or later
 
 
-Credits
--------
+Contributors
+============
 
-    - Written by Robert Niederreiter <rnix@squarewave.at>
+    - Robert Niederreiter <rnix@squarewave.at>
 
-    - Contributions Jens W. Klein <jens@bluedynamics.com>
+    - Jens W. Klein <jens@bluedynamics.com>
 
 
 Changes
