@@ -3,7 +3,7 @@ import sys, os
 
 version = '1.1'
 shortdesc = 'bda.intellidatetime'
-longdesc = open(os.path.join(os.path.dirname(__file__), 'README.txt')).read()
+longdesc = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
 
 setup(name='bda.intellidatetime',
       version=version,
