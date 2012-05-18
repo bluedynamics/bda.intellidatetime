@@ -25,8 +25,7 @@ Currently provided locales are:
 Example
 -------
 
-Use the convert function.
-::
+Use the convert function::
 
     >>> from bda.intellidatetime import convert
     >>> convert('1.1.08', locale='de')
@@ -128,27 +127,36 @@ Contributors
 Changes
 =======
 
+1.2dev
+------
+
+- Use ``zope.interface.implementer`` instead of 
+  ``zope.interface.implements``.
+  [rnix, 2012-05-18]
+
+
 1.1
 ---
 
-    - Provide convenience ``convert`` function.
-      [rnix, 2010-05-08]
+- Provide convenience ``convert`` function.
+  [rnix, 2010-05-08]
 
-    - Change package structure.
-      [rnix, 2010-05-08]
+- Change package structure.
+  [rnix, 2010-05-08]
     
-    - Move tests into seperate file.
-      [rnix, 2010-05-08]
+- Move tests into seperate file.
+  [rnix, 2010-05-08]
     
-    - Change signature of converter. could now be registered as utility as
-      well if desired.
-      [rnix, 2010-05-08]
+- Change signature of converter. could now be registered as utility as
+  well if desired.
+  [rnix, 2010-05-08]
     
-    - Adapter pattern deprecated.
-      [rnix, 2010-05-08]
+- Adapter pattern deprecated.
+  [rnix, 2010-05-08]
+
 
 1.0
 ---
 
-    - Make it work
-      [rnix, jensens]
+- Make it work
+  [rnix, jensens]

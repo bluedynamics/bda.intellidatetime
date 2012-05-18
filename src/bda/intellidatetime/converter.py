@@ -1,23 +1,23 @@
 import types
 from datetime import datetime
-from zope.interface import implements
+from zope.interface import implementer
 from bda.intellidatetime.interfaces import (
     DateTimeConversionError,
     ILocalePattern,
     IIntelliDateTime,
 )
 
+
 def convert(date, time=None, tzinfo=None, locale='iso'):
     return IntelliDateTime().convert(date, time, tzinfo, locale)
 
+
+@implementer(ILocalePattern)
 class LocalePattern(object):
     """See interfaces.ILocalePattern.
     
-    TODO: complete the language codes
+    XXX: complete the language codes
     """
-    
-    implements(ILocalePattern)
-    
     __date_I = 'Y M D'
     __date_II = 'D M Y'
     __date_III = 'M D Y'
@@ -52,12 +52,11 @@ class LocalePattern(object):
     def time(self, locale):
         return self.PATTERNS['time'].get(locale, self.__time_I)
 
+
+@implementer(IIntelliDateTime)
 class IntelliDateTime(object):
     """See interfaces.IIntelliDateTime.
     """
-    
-    implements(IIntelliDateTime)
-    
     _numbers = [str(n) for n in range(10)]
     
     def __init__(self, context=None):
