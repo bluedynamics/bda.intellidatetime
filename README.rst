@@ -127,8 +127,8 @@ Contributors
 Changes
 =======
 
-1.2dev
-------
+1.2
+---
 
 - Use ``zope.interface.implementer`` instead of 
   ``zope.interface.implements``.
