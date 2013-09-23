@@ -127,6 +127,12 @@ Contributors
 Changes
 =======
 
+1.2.1
+-----
+
+- fix ``MANIFEST.in`` to include ``configure.zcml`` in release
+  [jensens, 2013-09-23] 
+
 1.2
 ---
 
