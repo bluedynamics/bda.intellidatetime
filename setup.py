@@ -3,7 +3,7 @@ from setuptools import setup
 import os
 
 
-version = '1.2.2.devo0'
+version = '1.2.2'
 shortdesc = 'bda.intellidatetime'
 longdesc = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
 longdesc += open(os.path.join(os.path.dirname(__file__), 'LICENSE.rst')).read()

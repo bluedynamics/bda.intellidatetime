@@ -100,6 +100,19 @@ The signature of ``bda.intellidatetime.convert`` looks like so:
         """
 
 
+Coverage report
+---------------
+
+::
+
+    lines   cov%   module
+        1   100%   bda.__init__
+        6   100%   bda.intellidatetime.__init__
+      152    99%   bda.intellidatetime.converter
+       10   100%   bda.intellidatetime.interfaces
+       13    92%   bda.intellidatetime.tests
+
+
 Licence
 -------
 
@@ -116,8 +129,8 @@ Contributors
 Changes
 =======
 
-1.2.2 (unreleased)
-------------------
+1.2.2
+-----
 
 - Package cleanup
   [rnix, 2017-03-29]
