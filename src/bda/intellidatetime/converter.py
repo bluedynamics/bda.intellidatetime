@@ -3,7 +3,12 @@ from bda.intellidatetime.interfaces import IIntelliDateTime
 from bda.intellidatetime.interfaces import ILocalePattern
 from datetime import datetime
 from zope.interface import implementer
+import sys
 import types
+
+
+IS_PY2 = sys.version_info[0] < 3
+STRING_TYPES = types.StringTypes if IS_PY2 else (str,)
 
 
 def convert(date, time=None, tzinfo=None, locale='iso'):
@@ -69,7 +74,7 @@ class IntelliDateTime(object):
         kwargs = {'tzinfo': tzinfo }
         try:
             dt = datetime(*datetimedefs, **kwargs)
-        except ValueError, e:
+        except ValueError as e:
             raise DateTimeConversionError(e)
         if tzinfo:
             # set to normalized tz (in case of DST), keep input in tz and DST
@@ -78,26 +83,22 @@ class IntelliDateTime(object):
         return dt
 
     def _parseDate(self, date, locale):
-        if not date or not type(date) in types.StringTypes:
+        if not date or not type(date) in STRING_TYPES:
             raise DateTimeConversionError(u"Invalid date input.")
-        
         date = self._splitValue(date)
         pattern = self.pattern.date(locale)
         map = self._dateMap(pattern)
-        if type(date) in types.StringTypes:
+        if type(date) in STRING_TYPES:
             return self._splitDate(date, map)
-
         if len(date) == 1:
             dt = datetime.now()
             return [dt.year, dt.month, date[0]]
-
         if len(date) == 2:
             dt = datetime.now()
             if map[1] == 1 and map[2] == 0:
                 return [dt.year, date[1], date[0]]
             else:
                 return [dt.year, date[0], date[1]]
-
         if len(date) == 3:
             year = str(date[map[0]])
             if len(year) in [3, 4]:
@@ -107,23 +108,18 @@ class IntelliDateTime(object):
             dt = datetime.now()
             year = int('%s%s' % (str(dt.year)[:2], year))
             return [year, date[map[1]], date[map[2]]]
-
         raise DateTimeConversionError(u"Invalid number of parts for date.")
 
     def _parseTime(self, time, locale):
-        if not time or not type(time) in types.StringTypes:
+        if not time or not type(time) in STRING_TYPES:
             return [0, 0]
-
         time = self._splitValue(time)
         if len(time) not in [1, 2]:
             raise DateTimeConversionError(u"Invalid number of parts for time.")
-
         pattern = self.pattern.time(locale)
         map = self._timeMap(pattern)
-
         if len(time) == 1:
             return [time[0], 0]
-
         ret = [0, 0]
         for i in range(2):
             ret[i] = time[map[i]]
@@ -162,10 +158,9 @@ class IntelliDateTime(object):
         return ret
 
     def _splitValue(self, value):
-        if not value or not type(value) in types.StringTypes:
+        if not value or not type(value) in STRING_TYPES:
             raise DateTimeConversionError(
                 u"Empty value or unknown value type.")
-
         value = value.strip()
         if self._isNumeric(value):
             l = len(value)
@@ -189,9 +184,8 @@ class IntelliDateTime(object):
         return [int(p) for p in parts if self._isNumeric(p.strip())]
 
     def _isNumeric(self, value):
-        if not value or not type(value) in types.StringTypes:
+        if not value or not type(value) in STRING_TYPES:
             return False
-
         for c in value:
             if not c in self._numbers:
                 return False
