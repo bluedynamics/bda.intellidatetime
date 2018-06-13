@@ -34,6 +34,5 @@ setup(
         'setuptools',
         'zope.interface',
     ],
-    tests_require=['interlude'],
-    test_suite='bda.intellidatetime.tests.test_suite'
+    test_suite='bda.intellidatetime.tests'
 )
