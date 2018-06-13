@@ -100,19 +100,6 @@ The signature of ``bda.intellidatetime.convert`` looks like so:
         """
 
 
-Coverage report
----------------
-
-::
-
-    lines   cov%   module
-        1   100%   bda.__init__
-        6   100%   bda.intellidatetime.__init__
-      152    99%   bda.intellidatetime.converter
-       10   100%   bda.intellidatetime.interfaces
-       13    92%   bda.intellidatetime.tests
-
-
 Licence
 -------
 
@@ -132,13 +119,17 @@ Changes
 1.3 (unreleased)
 ----------------
 
-- No changes yet.
+- Python 3 compatibility.
+  [rnix]
+
+- Convert doctests to unittests.
+  [rnix]
 
 
 1.2.2
 -----
 
-- Package cleanup
+- Package cleanup.
   [rnix, 2017-03-29]
 
 
