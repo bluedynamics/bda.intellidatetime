@@ -116,7 +116,7 @@ Contributors
 Changes
 =======
 
-1.3 (unreleased)
+1.3 (2018-07-16)
 ----------------
 
 - Python 3 compatibility.
