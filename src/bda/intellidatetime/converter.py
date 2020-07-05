@@ -25,7 +25,7 @@ class LocalePattern(object):
     __date_II = 'D M Y'
     __date_III = 'M D Y'
     __time_I = 'H M'
-    __time_II = 'M H' # ever used ??
+    __time_II = 'M H'  # ever used ??
 
     PATTERNS = {
         'date': dict(),
@@ -40,7 +40,7 @@ class LocalePattern(object):
     for locale in ['en']:
         PATTERNS['date'][locale] = __date_III
 
-    for locale in ['iso', 'en', 'de', 'de-de', 'de-at', 'de-ch', 
+    for locale in ['iso', 'en', 'de', 'de-de', 'de-at', 'de-ch',
                    'es', 'fr', 'uk', 'it', 'cs']:
         PATTERNS['time'][locale] = __time_I
 
@@ -71,7 +71,9 @@ class IntelliDateTime(object):
         datedefs = self._parseDate(date, locale)
         timedefs = self._parseTime(time, locale)
         datetimedefs = datedefs + timedefs
-        kwargs = {'tzinfo': tzinfo }
+        kwargs = {
+            'tzinfo': tzinfo
+        }
         try:
             dt = datetime(*datetimedefs, **kwargs)
         except ValueError as e:
@@ -127,7 +129,11 @@ class IntelliDateTime(object):
 
     def _dateMap(self, pattern):
         pattern = pattern.split(' ')
-        mapper = { 'y': 0, 'm': 1, 'd': 2, }
+        mapper = {
+            'y': 0,
+            'm': 1,
+            'd': 2,
+        }
         map = [None, None, None]
         for i in range(3):
             map[mapper[pattern[i].lower()]] = i
@@ -149,7 +155,7 @@ class IntelliDateTime(object):
                 start = 0
                 end = 4
             elif i != 0 and map[i] > map[0]:
-                start = (map[i] -1) * 2 + 4
+                start = (map[i] - 1) * 2 + 4
                 end = start + 2
             else:
                 start = map[i] * 2
@@ -160,20 +166,22 @@ class IntelliDateTime(object):
     def _splitValue(self, value):
         if not value or not type(value) in STRING_TYPES:
             raise DateTimeConversionError(
-                u"Empty value or unknown value type.")
+                u"Empty value or unknown value type."
+            )
         value = value.strip()
         if self._isNumeric(value):
-            l = len(value)
-            if l in [1, 2]:
-                return [int(value)] # case D or H
-            elif l == 4: # case MH, HM, DM, MD
+            vl = len(value)
+            if vl in [1, 2]:
+                return [int(value)]  # case D or H
+            elif vl == 4:  # case MH, HM, DM, MD
                 return [int(value[:2]), int(value[2:])]
-            elif l == 6: # case DMY, MDY, YMD
+            elif vl == 6:  # case DMY, MDY, YMD
                 return [int(value[:2]), int(value[2:4]), int(value[4:])]
-            elif l == 8: # any year case, return whole value
+            elif vl == 8:  # any year case, return whole value
                 return value
             raise DateTimeConversionError(
-                u"Numeric value given, but not parseable.")
+                u"Numeric value given, but not parseable."
+            )
         parts = list()
         pointer = 0
         for i in range(len(value)):
@@ -187,6 +195,6 @@ class IntelliDateTime(object):
         if not value or not type(value) in STRING_TYPES:
             return False
         for c in value:
-            if not c in self._numbers:
+            if c not in self._numbers:
                 return False
         return True
