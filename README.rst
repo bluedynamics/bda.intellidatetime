@@ -116,10 +116,11 @@ Contributors
 Changes
 =======
 
-1.4 (unreleased)
+1.4 (2022-12-05)
 ----------------
 
-- No changes yet.
+- Release wheel.
+  [rnix]
 
 
 1.3 (2018-07-16)
