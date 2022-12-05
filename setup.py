@@ -8,7 +8,7 @@ def read_file(name):
         return f.read()
 
 
-version = '1.4'
+version = '1.5.dev0'
 shortdesc = 'bda.intellidatetime'
 longdesc = '\n\n'.join([read_file(name) for name in [
     'README.rst',
