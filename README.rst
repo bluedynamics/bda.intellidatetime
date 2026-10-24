@@ -1,3 +1,16 @@
+.. image:: https://img.shields.io/pypi/v/bda.intellidatetime.svg
+    :target: https://pypi.python.org/pypi/bda.intellidatetime
+    :alt: Latest PyPI version
+
+.. image:: https://img.shields.io/pypi/dm/bda.intellidatetime.svg
+    :target: https://pypi.python.org/pypi/bda.intellidatetime
+    :alt: Number of PyPI downloads
+
+.. image:: https://github.com/bluedynamics/bda.intellidatetime/actions/workflows/test.yml/badge.svg
+    :target: https://github.com/bluedynamics/bda.intellidatetime/actions/workflows/test.yml
+    :alt: Test bda.intellidatetime
+
+
 bda.intellidatetime
 ===================
 
@@ -44,8 +57,8 @@ The signature of ``bda.intellidatetime.convert`` looks like so:
     def convert(date, time=None, tzinfo=None, locale='iso'):
         """Convert the input to a datetime object.
 
-        The convert function accepts unicode or non-unicode strings and tries
-        to parse out Date and Time information as follows:
+        The convert function accepts strings and tries to parse out Date and
+        Time information as follows:
           * First try to get the localized datetime pattern information
           * If no one is found, a default pattern is used.
           * Parse the input by the definitions of the localized datetime pattern
@@ -111,71 +124,3 @@ Contributors
 
 - Robert Niederreiter (Author)
 - Jens W. Klein
-
-
-Changes
-=======
-
-1.4 (2022-12-05)
-----------------
-
-- Release wheel.
-  [rnix]
-
-
-1.3 (2018-07-16)
-----------------
-
-- Python 3 compatibility.
-  [rnix]
-
-- Convert doctests to unittests.
-  [rnix]
-
-
-1.2.2
------
-
-- Package cleanup.
-  [rnix, 2017-03-29]
-
-
-1.2.1
------
-
-- fix ``MANIFEST.in`` to include ``configure.zcml`` in release
-  [jensens, 2013-09-23]
-
-
-1.2
----
-
-- Use ``zope.interface.implementer`` instead of ``zope.interface.implements``.
-  [rnix, 2012-05-18]
-
-
-1.1
----
-
-- Provide convenience ``convert`` function.
-  [rnix, 2010-05-08]
-
-- Change package structure.
-  [rnix, 2010-05-08]
-
-- Move tests into seperate file.
-  [rnix, 2010-05-08]
-
-- Change signature of converter. could now be registered as utility as well if
-  desired.
-  [rnix, 2010-05-08]
-
-- Adapter pattern deprecated.
-  [rnix, 2010-05-08]
-
-
-1.0
----
-
-- Make it work
-  [rnix, jensens]

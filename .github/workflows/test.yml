@@ -1,0 +1,43 @@
+name: Python Tests
+
+on: [push]
+
+jobs:
+  test:
+    name: Test ${{ matrix.python }} - ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
+          - macos-latest
+
+        python:
+          - "3.10"
+          - "3.11"
+          - "3.12"
+          - "3.13"
+          - "3.14"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: Install
+        run: |
+          make install
+
+      - name: Run tests
+        run: |
+          make test
+
+      - name: Run coverage
+        run: |
+          make coverage

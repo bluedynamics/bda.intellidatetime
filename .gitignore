@@ -1,3 +1,11 @@
+*.egg-info/
 *.pyc
-dist/
-src/bda.intellidatetime.egg-info
+/.coverage
+/.mxmake
+/.ruff_cache
+/build
+/constraints-mxdev.txt
+/dist/
+/htmlcov/
+/requirements-mxdev.txt
+/venv

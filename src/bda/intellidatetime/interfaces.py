@@ -6,8 +6,7 @@ class DateTimeConversionError(Exception):
 
 
 class ILocalePattern(Interface):
-    """Interface providing localized input date and time patterns.
-    """
+    """Interface providing localized input date and time patterns."""
 
     def date(locale):
         """Return one of 3 possible patterns:
@@ -39,14 +38,13 @@ class ILocalePattern(Interface):
 
 
 class IIntelliDateTime(Interface):
-    """Interface for the datetime conversion.
-    """
+    """Interface for the datetime conversion."""
 
     def convert(date, time=None, tzinfo=None, locale='iso'):
         """Convert the input to a datetime object.
 
-        The convert function accepts unicode or non-unicode strings and tries
-        to parse out Date and Time information as follows:
+        The convert function accepts strings and tries to parse out Date and
+        Time information as follows:
           * First try to get the localized datetime pattern information
           * If no one is found, a default pattern is used.
           * Parse the input by the definitions of the localized datetime pattern
