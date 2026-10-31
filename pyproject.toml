@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "bda.intellidatetime"
-version = "2.0.0"
+version = "2.0.1.dev0"
 description = "Converter for date and time input to datetime objects."
 dynamic = ["readme"]
 requires-python = ">=3.10"
